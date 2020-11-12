@@ -15,7 +15,7 @@ class Pokecard extends React.Component {
     console.log(this.props.id);
     return (
       <>
-        <img src={this.props.image} alt={this.props.name} />
+        <img src={this.props.image} alt={this.props.name} className="image" />
         <h2>{this.props.name}</h2>
         <div>{this.getType()}</div>
       </>
