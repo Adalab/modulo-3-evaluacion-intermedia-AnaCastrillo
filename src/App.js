@@ -1,11 +1,10 @@
 import React from 'react';
 import './App.css';
 
-import Pokecard from './Pokecard';
 import PokeList from './PokeList';
 
 class App extends React.Component {
-  constructor() {
+  constructor(props) {
     const Pokedex = [
       {
         id: 1,
@@ -88,22 +87,12 @@ class App extends React.Component {
           'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10.png',
       },
     ];
-
+    super(props);
     this.state = {
       pokemons: [...Pokedex],
     };
   }
   render() {
-    for (let pokemon of this.state.pokemons) {
-      console.log(pokemon.name);
-      <Pokecard
-        id={pokemon.id}
-        name={pokemon.name}
-        type={pokemon.types}
-        evolution={pokemon.evolution}
-        image={pokemon.url}
-      />;
-    }
     return <PokeList pokemons={this.state.pokemons} />;
   }
 }

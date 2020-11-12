@@ -1,20 +1,41 @@
+import React from 'react';
 import Pokecard from './Pokecard';
 
-function PokeList(props) {
-  function generateList() {
-    for (let pokemon of props.pokemons) {
-      console.log(pokemon.name);
-      <Pokecard
-        id={pokemon.id}
-        name={pokemon.name}
-        type={pokemon.types}
-        evolution={pokemon.evolution}
-        image={pokemon.url}
-      />;
-    }
+// function generateList(props) {
+//   console.log(props);
+//   for (let pokemon of props.pokemons) {
+//     <Pokecard
+//       id={pokemon.id}
+//       name={pokemon.name}
+//       type={pokemon.types}
+//       evolution={pokemon.evolution}
+//       image={pokemon.url}
+//     />;
+//   }
+// }
+class PokeList extends React.Component {
+  constructor(props) {
+    super(props);
   }
 
-  return generateList;
+  generateList() {
+    let list = [];
+    for (let pokemon of this.props.pokemons) {
+      list.push(
+        <Pokecard
+          id={pokemon.id}
+          name={pokemon.name}
+          types={pokemon.types}
+          evolution={pokemon.evolution}
+          image={pokemon.url}
+        />
+      );
+    }
+    return list;
+  }
+  render() {
+    return this.generateList();
+  }
 }
 
 export default PokeList;
